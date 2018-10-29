@@ -4,7 +4,7 @@
 <body>
 	<nav th:replace='fragments::menu'></nav>
 	
-	<h1 th:text="#{ssnOf} + ' ' + ${employee.firstName} + ' ' + ${employee.lastName}"></h1>
+	<h1 th:text="#{ssnOf} + ' ' + ${employee.birthDate}"></h1>
 	
 	<!-- <form th:action='@{/employees/{id}/ssn(id=${employee.id})}' method='post'
 		th:object='${socialSecurityNumberForm}'> -->
@@ -17,6 +17,7 @@
 		</label>
 		
 		<input th:field='*{employee}' type='hidden'>
+		<input th:field='*{employee.socialSecurityNumber}' type='hidden'>
 		
 		<input type='submit' th:value='#{ssnSubmit}'>
 		<div th:if="${#fields.hasErrors('*')}" class="error">

@@ -1,5 +1,6 @@
 package be.vdab.personeelfix.services;
 
+import java.util.List;
 import java.util.Optional;
 
 import javax.persistence.LockModeType;
@@ -27,6 +28,12 @@ public class EmployeeServiceDefault implements EmployeeService {
 	@Lock(LockModeType.OPTIMISTIC_FORCE_INCREMENT)
 	public Optional<Employee> read(final long employeeId) {
 		return employeeRepository.findById(employeeId);
+	}
+	
+	@Override
+	@Lock(LockModeType.OPTIMISTIC_FORCE_INCREMENT)
+	public List<Employee> findAll() {
+		return employeeRepository.findAll();
 	}
 	
 	@Override

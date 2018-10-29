@@ -1,4 +1,4 @@
-package be.vdab.personeel;
+package be.vdab.personeelfix;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

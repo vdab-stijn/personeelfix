@@ -15,11 +15,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import be.vdab.personeel.entities.Employee;
-import be.vdab.personeel.services.EmployeeService;
-import be.vdab.personeel.web.forms.EmployeeRaiseForm;
-import be.vdab.personeel.web.forms.SocialSecurityNumberForm;
-import be.vdab.personeel.web.session.EmployeeData;
+import be.vdab.personeelfix.entities.Employee;
+import be.vdab.personeelfix.services.EmployeeService;
+import be.vdab.personeelfix.web.forms.SocialSecurityNumberForm;
+import be.vdab.personeelfix.web.sessions.EmployeeData;
 
 @Controller
 @RequestMapping("employees")
@@ -71,7 +70,8 @@ public class EmployeeController {
 		employee.ifPresent(e -> {
 			modelAndView.addObject(new SocialSecurityNumberForm(
 					e, e.getSocialSecurityNumber()));
-			modelAndView.addObject("employee", e); });
+			modelAndView.addObject("employee", e);
+			modelAndView.addObject("socialSecurityNumber", e.getSocialSecurityNumber()); });
 		
 		return modelAndView;
 	}

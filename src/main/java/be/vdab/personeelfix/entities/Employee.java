@@ -1,5 +1,6 @@
 package be.vdab.personeelfix.entities;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
 import javax.persistence.Column;
@@ -19,7 +20,10 @@ import be.vdab.personeelfix.valueobjects.SocialSecurityNumber;
 
 @Entity
 @Table(name = "werknemers")
-public class Employee {
+public class Employee implements Serializable {
+
+	/** Implements Serializable */
+	private static final long serialVersionUID = -4635254872941040510L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -41,6 +45,10 @@ public class Employee {
 			final SocialSecurityNumber socialSecurityNumber) {
 		setBirthDate(birthDate);
 		setSocialSecurityNumber(socialSecurityNumber);
+	}
+	
+	public long getId() {
+		return id;
 	}
 	
 	public void setBirthDate(final LocalDate birthDate) {
